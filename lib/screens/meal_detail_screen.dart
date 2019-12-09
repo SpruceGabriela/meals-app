@@ -16,8 +16,8 @@ class MealDetailScreen extends StatelessWidget {
           decoration: BoxDecoration(color: Colors.white,),
           margin: EdgeInsets.all(5),
           padding: EdgeInsets.all(2),
-          height: 150,
-          width: 330,
+          height: 300,
+          width: 380,
           child: child,
         );
   }
@@ -52,13 +52,19 @@ class MealDetailScreen extends StatelessWidget {
             itemCount: selectedMeal.steps.length,
             itemBuilder: (BuildContext context, int index) => ListTile(
               leading: CircleAvatar(
-                backgroundColor: Theme.of(context).accentColor,
-                child: Text('${(index + 1)}', style: TextStyle(color: Colors.white),),),
+                backgroundColor: Colors.transparent,
+                child: Text('${(index + 1)}', style: TextStyle(color: Theme.of(context).accentColor),),),
               title: Text(selectedMeal.steps[index]),
             ),
           ),
         ),
       ],),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete_outline),
+        onPressed: (){
+          Navigator.of(context).pop();
+        }
       ),
     );
   }
